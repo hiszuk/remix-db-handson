@@ -186,7 +186,7 @@ export default function Index() {
  */
 const CheckTask = ({ task }: { task: Pick<TaskRecord, "id" | "status"> }) => {
   /**
-   * チェックボックスの状態変更飲みでページ遷移を伴わないのでfetcherで更新する
+   * チェックボックスの状態変更のみでページ遷移を伴わないのでfetcherで更新する
    */
   const fetcher = useFetcher();
   const checked = task.status;
