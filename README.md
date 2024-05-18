@@ -1,36 +1,28 @@
-# Welcome to Remix + Vite!
+# Remix DB Hands-On
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
+Remixで簡単なデータベースI/Oを体験するハンズ・オンです。
 
-## Development
+## 対象者
 
-Run the Vite dev server:
+- Reactに関する知識・経験がある
+- Remixに関して[tutorial](https://remix.run/docs/en/main/start/tutorial)をやったことがある
+- リレーショナルデータベースでテーブル作成とデータの読み書きをやったことがある
 
-```shellscript
-npm run dev
-```
+## やること・やらないこと
 
-## Deployment
+### やること
 
-First, build your app for production:
+- [drizzle-kit](https://orm.drizzle.team/kit-docs/overview)でsqliteのデータベースにテーブルを作成する
+- [drizzle orm](https://orm.drizzle.team/docs/overview)を使いRemixアプリからデータを読み書きする
 
-```sh
-npm run build
-```
+### やらないこと
 
-Then run the app in production mode:
+- 今回の題材であるToDoアプリの解説
+- Remixにおけるloader, action, コンポーネントの詳細な解説
+- [tailwndcss](https://tailwindcss.com/docs/installation)のインストール方法や使い方
+- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)のインストールや環境設定方法
+- drizzle, drizzle-kitのインストールや環境設定方法
 
-```sh
-npm start
-```
+## 事前準備
 
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+ハンズオンに参加する方は、以下の事前準備を済ませておいて下さい。
