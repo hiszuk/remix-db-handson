@@ -26,3 +26,9 @@ Remixで簡単なデータベースI/Oを体験するハンズ・オンです。
 ## 事前準備
 
 ハンズオンに参加する方は、以下の事前準備を済ませておいて下さい。
+
+1. [ハンズオン用ソースコード](https://github.com/hiszuk/remix-db-handson/archive/refs/tags/hands-on-init.zip)をダウンロード
+2. 適当なフォルダに展開し、`npm install`する
+3. `npm run dev`し、http://localhost:5173 にアクセスすると下図のような画面が表示されたらOKです
+
+![my todo app](assets/images/image-01.png)
