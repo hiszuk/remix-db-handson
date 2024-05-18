@@ -1,1 +1,13 @@
-{"version":"6","dialect":"sqlite","entries":[]}
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1716021083640,
+      "tag": "0000_living_rocket_raccoon",
+      "breakpoints": true
+    }
+  ]
+}

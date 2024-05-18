@@ -6,10 +6,13 @@ import {
   type MetaFunction,
 } from "@remix-run/node";
 import { Form, useFetcher, useLoaderData, useLocation } from "@remix-run/react";
+import { eq } from "drizzle-orm";
 import { ListTodo, Trash } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
+import { createClient } from "~/db.server";
+import { tasks } from "~/drizzle/schema.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -32,16 +35,14 @@ type TaskRecord = {
  * Index() をレンダリングする前に実行される関数
  */
 export const loader = async () => {
-  // dummy tasks
-  const result: TaskRecord[] = [
-    { id: 1, label: "タスク1", status: true },
-    { id: 2, label: "タスク2", status: false },
-    { id: 3, label: "タスク3", status: false },
-  ];
-
   /**
    * DBからタスクリストを取り出す部分(SELECT)
    */
+  // DB接続
+  const db = createClient();
+
+  // tasks読み込み
+  const result = await db.select().from(tasks);
 
   // 正常終了
   return json({ tasks: result }, { status: 200 });
@@ -54,6 +55,11 @@ export const loader = async () => {
  * 各methodに応じた処理をif文で分岐する
  */
 export const action = async ({ request }: ActionFunctionArgs) => {
+  /*
+   * DB接続処理は共通部分で処理
+   */
+  const db = createClient();
+
   /**
    * 新規タスク作成（POST）
    */
@@ -70,6 +76,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
      * 新規タスクをDBに登録する
      */
     console.log("INSERT DB ->", label);
+    await db.insert(tasks).values({ label: label });
 
     // 正常終了
     return redirect("/");
@@ -90,6 +97,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
      * タスクのチェック状態を更新する
      */
     console.log("UPDATE TASKS ->", id, status);
+    await db.update(tasks).set({ status: status }).where(eq(tasks.id, id));
 
     // 正常終了
     return json({ message: "OK" }, { status: 200 });
@@ -109,6 +117,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
      * 指定されたIDのタスクを削除する
      */
     console.log("DELETE TASKS ->", id);
+    await db.delete(tasks).where(eq(tasks.id, id));
 
     // 正常終了
     return redirect("/");
