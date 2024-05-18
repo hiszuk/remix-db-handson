@@ -23,9 +23,23 @@ Remixで簡単なデータベースI/Oを体験するハンズ・オンです。
 - [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)のインストールや環境設定方法
 - drizzle, drizzle-kitのインストールや環境設定方法
 
-## 事前準備
+## 事前準備について
 
-ハンズオンに参加する方は、以下の事前準備を済ませておいて下さい。
+ハンズオンに参加する方は、以下の事前準備手順で環境設定を済ませておいて下さい。
+
+nodeのバージョンは18以上に上げておく必要があります。
+
+社内環境の場合はインストール時に証明書関連のエラーになると思いますので、環境変数を以下のように設定してから実行して下さい。
+
+証明書があるフォルダを`C:¥temp`とします。
+
+```
+$env:NODE_EXTRA_CA_CERTS = "C:¥temp¥ZscalerRootCA.crt"
+```
+
+それ以外のエラーが発生する場合はチャットで連絡して下さい。
+
+### 事前準備手順
 
 1. [ハンズオン用ソースコード](https://github.com/hiszuk/remix-db-handson/archive/refs/tags/hands-on-init.zip)をダウンロード
 2. 適当なフォルダに展開し、`npm install`する
