@@ -20,6 +20,7 @@ Remixで簡単なデータベースI/Oを体験するハンズ・オンです。
 - 今回の題材であるToDoアプリの解説
 - Remixにおけるloader, action, コンポーネントの詳細な解説
 - [tailwndcss](https://tailwindcss.com/docs/installation)のインストール方法や使い方
+- [shadcn/ui](https://ui.shadcn.com/docs)のインストールや環境設定方法
 - [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)のインストールや環境設定方法
 - drizzle, drizzle-kitのインストールや環境設定方法
 
